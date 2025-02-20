@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Moon, Sun } from 'lucide-react';
 
 export const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -27,7 +26,7 @@ export const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="relative p-2 rounded-lg bg-gray-200 dark:bg-gray-800 transition-colors duration-200"
+      className="relative p-2 rounded-full bg-gray-200 dark:bg-gray-800 transition-colors duration-200"
       aria-label="Toggle theme"
     >
       <div className="relative w-6 h-6">
