@@ -7,7 +7,7 @@ import { ValueCard } from "./components/ValueCard"
 function App() {
 
   return (
-    <div>
+    <div className="w-[100dvw] h-[100dvh] flex flex-col relative overflow-hidden">
       <NavBar/>
       <Forcast/>
       <div>
