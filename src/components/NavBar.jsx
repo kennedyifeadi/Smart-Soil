@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { ThemeToggle } from './UI/DarkMode'
 import SmartSoilImage from '../assets/images/SmartSoil.png'
+import SmartSoilImageColored from '../assets/images/SmartSoilColored.png'
+import { DarkToggleContext } from './context/DarkModeContext'
 
 export const NavBar = () => {
+  const {isDark, setIsDark} = useContext(DarkToggleContext)
+
   return (
     <div className='w-full h-[60px] shadow-sm px-4 flex justify-between'>
         <div className='w-[75%] h-full items-center '>
-            <img src={SmartSoilImage} alt="Smart Soil logo" className='h-full' />
+            <img src={isDark ? SmartSoilImageColored : SmartSoilImage} alt="Smart Soil logo" className='h-full' />
         </div>
         <div className='flex w-[25%] h-full justify-between items-center border border-black'>
             <ThemeToggle/>
