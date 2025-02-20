@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Moon, Sun } from 'lucide-react';
+import { DarkToggleContext } from '../context/DarkModeContext';
 
 export const ThemeToggle = () => {
-
+    const {isDark, setIsDark} = useContext(DarkToggleContext)
   useEffect(() => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     setIsDark(prefersDark);
