@@ -9,7 +9,7 @@ import { ValueCard } from "./components/ValueCard"
 function App() {
   const {isDark, setIsDark} = useContext(DarkToggleContext)
   return (
-    <div className={`w-[100dvw] h-[100dvh] flex flex-col relative overflow-hidden ${isDark ? "bg-black" : "bg-white"}`}>
+    <div className={`w-[100dvw] h-[100dvh] flex flex-col relative overflow-hidden ${isDark ? "bg-[#09090b]" : "bg-white"}`}>
         <NavBar/>
         <Forcast/>
         <div>
