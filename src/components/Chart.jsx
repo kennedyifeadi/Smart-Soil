@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { DarkToggleContext } from './context/DarkModeContext'
 import { FaChartLine } from "react-icons/fa6";
+import { DataChart } from './UI/DataChart';
 
 
 export const Chart = () => {
@@ -24,8 +25,8 @@ export const Chart = () => {
                     </span>
                 </div>
             </div>
-            <div>
-                main Chart
+            <div className='w-full h-[80%]'>
+                <DataChart/>
             </div>
         </div>
     </div>

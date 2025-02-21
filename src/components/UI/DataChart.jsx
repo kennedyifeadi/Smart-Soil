@@ -7,7 +7,20 @@ export const DataChart = () => {
       colors: ["#1A56DB", "#FDBA8C"],
       series: [
         {
-          name: "Organic",
+          name: "Humidity",
+          color: "#ffbc02",
+          data: [
+            { x: "Mon", y: 200 },
+            { x: "Tue", y: 300 },
+            { x: "Wed", y: 163 },
+            { x: "Thu", y: 21 },
+            { x: "Fri", y: 162 },
+            { x: "Sat", y: 303 },
+            { x: "Sun", y: 190 },
+          ],
+        },
+        {
+          name: "Temperature",
           color: "#1A56DB",
           data: [
             { x: "Mon", y: 231 },
@@ -20,7 +33,7 @@ export const DataChart = () => {
           ],
         },
         {
-          name: "Social media",
+          name: "Moisture",
           color: "#FDBA8C",
           data: [
             { x: "Mon", y: 232 },
@@ -35,7 +48,7 @@ export const DataChart = () => {
       ],
       chart: {
         type: "bar",
-        height: "320px",
+        height: "100%",
         fontFamily: "Inter, sans-serif",
         toolbar: {
           show: false,
@@ -46,7 +59,7 @@ export const DataChart = () => {
           horizontal: false,
           columnWidth: "70%",
           borderRadiusApplication: "end",
-          borderRadius: 8,
+          borderRadius: 4,
         },
       },
       tooltip: {
@@ -75,7 +88,7 @@ export const DataChart = () => {
         padding: {
           left: 2,
           right: 2,
-          top: -14,
+          top: -20,
         },
       },
       dataLabels: {
@@ -115,6 +128,6 @@ export const DataChart = () => {
     }
   }, []);
 
-  return <div id="column-chart"></div>;
+  return <div className="w-full h-full" id="column-chart"></div>;
 };
 
