@@ -36,14 +36,14 @@ export const ThemeToggle = () => {
             isDark ? 'rotate-0 opacity-100' : 'rotate-90 opacity-0'
           }`}
         >
-          <Sun className="w-6 h-6 text-yellow-500" />
+          <Sun className="w-6 h-6 text-[#cfdf32]" />
         </div>
         <div
           className={`absolute inset-0 transform transition-transform duration-200 ${
             isDark ? '-rotate-90 opacity-0' : 'rotate-0 opacity-100'
           }`}
         >
-            <Moon className="w-6 h-6 text-yellow-500" />  
+            <Moon className="w-6 h-6 text-[#ffbc02]  " />  
         </div>
       </div>
     </button>
