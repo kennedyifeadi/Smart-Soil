@@ -5,17 +5,20 @@ import { DarkToggleContext} from "./components/context/DarkModeContext"
 import { Forcast } from "./components/Forcast"
 import { NavBar } from "./components/NavBar"
 import { ValueCard } from "./components/ValueCard"
+import { FaTemperatureHigh } from "react-icons/fa6";
+import { BsMoisture } from "react-icons/bs";
+import { WiHumidity } from "react-icons/wi";
 
 function App() {
-  const {isDark, setIsDark} = useContext(DarkToggleContext)
+  const {isDark} = useContext(DarkToggleContext)
   return (
-    <div className={`w-[100dvw] h-[100dvh] flex flex-col relative overflow-hidden ${isDark ? "bg-[#09090b]" : "bg-white"}`}>
+    <div className={`w-[100dvw] h-[100dvh] flex flex-col relative overflow-hidden ${isDark ? "bg-[#09090b]" : "bg-[#fafafa]"}`}>
         <NavBar/>
         <Forcast/>
-        <div>
-          <ValueCard/>
-          <ValueCard/>
-          <ValueCard/>
+        <div className=" w-full h-max flex justify-between px-4 mb-4">
+          <ValueCard Title="Temperature" Value="0" State={"Moderate level"} Icon={<FaTemperatureHigh />}/>
+          <ValueCard Title="Moisture" Value={"0"} State={"Moderate level"} Icon={<BsMoisture />}/>
+          <ValueCard Title="Humidity" Value={"0"} State={"Moderate level"} Icon={<WiHumidity />}/>
         </div>
         <Chart/>
         <AiSummary/>
