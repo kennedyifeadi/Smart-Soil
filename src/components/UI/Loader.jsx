@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export const Loader = () => {
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-900">
+    <div className="flex items-center justify-center w- full h-full">
       <motion.div
         className="flex space-x-2"
         initial={{ opacity: 0 }}
