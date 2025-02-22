@@ -9,7 +9,7 @@ export const NavBar = () => {
   const {isDark} = useContext(DarkToggleContext)
 
   return (
-    <div className={`w-full h-[8%] pr-4 flex justify-between border-b border-dashed ${isDark ? "border-[#27272a]": "border-[#dbd9d9]"} `}>
+    <div className={`w-full h-[8%] pr-4 flex justify-between border-b border-dashed mb-2 ${isDark ? "border-[#27272a]": "border-[#dbd9d9]"} `}>
         <div className='w-[75%] h-full items-center '>
             <img src={isDark ? SmartSoilImageColored : SmartSoilImage} alt="Smart Soil logo" className='h-full' />
         </div>
