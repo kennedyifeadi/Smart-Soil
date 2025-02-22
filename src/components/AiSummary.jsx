@@ -5,6 +5,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Loader } from './UI/Loader';
 import { onValue, ref } from 'firebase/database';
 import { db } from '../firebase/firebase';
+import { motion } from 'motion/react';
 
 export const AiSummary = () => {
   const { isDark } = useContext(DarkToggleContext);
@@ -59,7 +60,11 @@ export const AiSummary = () => {
   }, [moisture, temperature, humidity]);
 
   return (
-    <div className='w-full h-[32%] px-4 mb-2'>
+    <motion.div 
+    initial = {{opacity: 0, y: 40}}
+    animate={{ opacity: 1, y: 0}}
+    transition={{ duration: 2}}
+    className='w-full h-[32%] px-4 mb-2'>
       <div className={`relative w-full h-full overflow-hidden flex flex-col justify-between 
         ${isDark ? "border-2 border-[#27272a] bg-[#27272ab9]" : "border-2 border-[#dbd9d99f] bg-[#dbd9d96c]"} 
         rounded-md `}>
@@ -84,6 +89,6 @@ export const AiSummary = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
