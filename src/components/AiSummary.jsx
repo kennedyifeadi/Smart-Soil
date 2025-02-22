@@ -38,7 +38,7 @@ export const AiSummary = () => {
       const prompt = `Provide recommendations for improving soil health based on the following data: 
         - Moisture: ${moisture}% 
         - Temperature: ${temperature}°C 
-        - Humidity: ${humidity}%`;
+        - Humidity: ${humidity}%, your response should not exceed 100 words`;
   
       const result = await model.generateContent(prompt);
       const cleanResponse = result.response.text().replace(/\*/g, ''); // Removes '*' from response
@@ -59,7 +59,7 @@ export const AiSummary = () => {
   }, [moisture, temperature, humidity]);
 
   return (
-    <div className='w-full h-[32%] px-4'>
+    <div className='w-full h-[32%] px-4 mb-2'>
       <div className={`relative w-full h-full overflow-hidden flex flex-col justify-between 
         ${isDark ? "border-2 border-[#27272a] bg-[#27272ab9]" : "border-2 border-[#dbd9d99f] bg-[#dbd9d96c]"} 
         rounded-md `}>
@@ -78,9 +78,8 @@ export const AiSummary = () => {
             </span>
           </div>
         </div>
-        <div className='w-full h-[80%] p-2'>
-          <div className={`w-full h-full overflow-y-auto rounded-md p-2 text-[15px] 
-            ${isDark ? "text-[#fafafa]" : "text-[#09090b]"} ${isDark ? "bg-[#09090b5e]" : "bg-[#fafafa]" }`}>
+        <div className='flex w-full h-[80%] p-2 overflow-y-auto'>
+          <div className={`w-full h-full max-h-full overflow-y-auto rounded-md p-2 text-[15px] ${isDark ? "text-[#fafafa]" : "text-[#09090b]"} ${isDark ? "bg-[#09090b5e]" : "bg-[#fafafa]" }`}>
             {isLoading ? <Loader /> : response}
           </div>
         </div>
