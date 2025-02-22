@@ -38,7 +38,7 @@ export const AiSummary = () => {
       const prompt = `Provide recommendations for improving soil health based on the following data: 
         - Moisture: ${moisture}% 
         - Temperature: ${temperature}°C 
-        - Humidity: ${humidity}%, your response should not exceed 100 words`;
+        - Humidity: ${humidity}%, your response should not exceed 30 words`;
   
       const result = await model.generateContent(prompt);
       const cleanResponse = result.response.text().replace(/\*/g, ''); // Removes '*' from response
