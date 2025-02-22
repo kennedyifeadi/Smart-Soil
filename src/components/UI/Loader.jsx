@@ -12,7 +12,7 @@ export const Loader = () => {
         {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
-            className="w-5 h-5 bg-blue-500 rounded-full"
+            className="w-5 h-5 bg-[#cfdf32] rounded-full"
             animate={{
               y: [0, -20, 0],
             }}
