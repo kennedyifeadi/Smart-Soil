@@ -12,15 +12,14 @@ import { db, get, onValue, ref} from "./firebase/firebase"
 
 function App() {
   const {isDark} = useContext(DarkToggleContext)
-  const [temperature, setTemperature] = useState();
-  const [moisture, setMoisture] = useState();
-  const [humidity, setHumidity] = useState();
+  const [temperature, setTemperature] = useState(null);
+  const [moisture, setMoisture] = useState(null);
+  const [humidity, setHumidity] = useState(null);
 
 
   const updateDashboard = () => {
     onValue(ref(db, "Data"), (snapshot) => {
       const Data = snapshot.val();
-      console.log(Data);
       setTemperature(Data?.Temperature);
       setMoisture(Data?.Moisture);
       setHumidity(Data?.Humidity);
