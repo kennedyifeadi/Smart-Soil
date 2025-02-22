@@ -1,10 +1,36 @@
 import React, { useContext } from 'react'
 import { DarkToggleContext } from './context/DarkModeContext'
 import { RiRobot2Line } from "react-icons/ri";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
 
 
 export const AiSummary = () => {
   const {isDark} = useContext(DarkToggleContext)
+  const [response, setResponse] = useState("");
+  const API_KEY = import.meta.env.VITE_REACT_API_KEY
+  const genAI = new GoogleGenerativeAI(API_KEY)
+
+  const fetchData = async () => {
+    try {
+      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const prompt = ``
+      const result = await model.generateContent(prompt);
+      await sleep(1000);
+      setIsLoading(false)
+      setResponse(result.response.text());
+    } catch (error) {
+      console.log(error);
+      setResponse("Error fetching data");
+
+    }
+  }
+
+  useEffect(() => {
+
+    fetchData();
+
+  }, []);
 
   return (
     <div className='w-full h-[32%] px-4'>
@@ -15,7 +41,7 @@ export const AiSummary = () => {
                         AI Assistance
                     </h1>
                     <span className='text-[9px] text-[#7f7f86]'>
-                        listen to what your robot has to say...
+                        hear what soilBot has to say...
                     </span>
                 </div>
                 <div className={`absolute top-[-1rem] ${isDark ? "text-[#cfdf32]" : "text-[#ffbc02]"} text-7xl opacity-25 w-full h-full`}>
