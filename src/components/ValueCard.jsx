@@ -1,11 +1,16 @@
 import React, { useContext } from 'react'
 import { DarkToggleContext } from './context/DarkModeContext'
+import { motion } from 'motion/react'
 
 export const ValueCard = ({Title, Value, Icon, State}) => {
   const {isDark} = useContext(DarkToggleContext)
 
   return (
-    <div className={`relative flex flex-col p-2 w-[30%] h-max rounded-md overflow-hidden ${isDark ? "border-2 border-[#27272a] bg-[#27272ab9]" : "border-2 border-[#dbd9d99f] bg-[#dbd9d96c]"} `}>
+    <motion.div
+    initial = {{opacity: 0, y: 40}}
+    animate={{ opacity: 1, y: 0}}
+    transition={{ duration: 1.5}}
+    className={`relative flex flex-col p-2 w-[30%] h-max rounded-md overflow-hidden ${isDark ? "border-2 border-[#27272a] bg-[#27272ab9]" : "border-2 border-[#dbd9d99f] bg-[#dbd9d96c]"} `}>
         <div className='flex justify-between items-center'>
             <div className='flex flex-col h-full leading-2.5 z-20'>
                 <span className={`${isDark ? "text-[#cfdf32]" : "text-[#ffbc02]"} text-[7px]`}>
@@ -29,6 +34,6 @@ export const ValueCard = ({Title, Value, Icon, State}) => {
                 {State}
             </p>
         </div>
-    </div>
+    </motion.div>
   )
 }
