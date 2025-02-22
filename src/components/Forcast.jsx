@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { DarkToggleContext } from './context/DarkModeContext'
+import { motion } from "motion/react"
 
 export const Forcast = () => {
   const {isDark} = useContext(DarkToggleContext)
@@ -26,22 +27,30 @@ export const Forcast = () => {
 
   return (
     <div className='w-full h-[5%] flex gap-2 px-4 mb-2'>
-      <div className={`w-max h-max flex flex-col border-2 ${isDark ? "text-[#fafafa] border-[#27272a] bg-[#27272ab9]" : "text-[#09090b] border-[#dbd9d99f] bg-[#dbd9d96c]"} rounded-full px-4`}>
+      <motion.div 
+      initial = {{opacity: 0, y: 40}}
+      animate={{ opacity: 1, y: 0}}
+      transition={{ duration: 1}}
+      className={`w-max h-max flex flex-col border-2 ${isDark ? "text-[#fafafa] border-[#27272a] bg-[#27272ab9]" : "text-[#09090b] border-[#dbd9d99f] bg-[#dbd9d96c]"} rounded-full px-4`}>
         <span className='w-max text-[12px]'>
           {todayForcast}
         </span>
         <span className={`text-[8px] ${isDark ? "text-[#cfdf32]" : "text-[#ffbc02]"}`}>
           today's weather reading
         </span>
-      </div>
-      <div className={`w-max h-max flex flex-col border-2 ${isDark ? "text-[#fafafa] border-[#27272a] bg-[#27272ab9]" : "text-[#09090b] border-[#dbd9d99f] bg-[#dbd9d96c]"} rounded-full px-4`}>
+      </motion.div>
+      <motion.div 
+      initial = {{opacity: 0, y: 40}}
+      animate={{ opacity: 1, y: 0}}
+      transition={{ duration: 1.2}}
+      className={`w-max h-max flex flex-col border-2 ${isDark ? "text-[#fafafa] border-[#27272a] bg-[#27272ab9]" : "text-[#09090b] border-[#dbd9d99f] bg-[#dbd9d96c]"} rounded-full px-4`}>
         <span className='w-max text-[12px]'>
           {tomorrowForcast}
         </span>
         <span className={`text-[8px] ${isDark ? "text-[#cfdf32]" : "text-[#ffbc02]"}`}>
           tomorrow's weather reading
         </span>
-      </div>
+      </motion.div>
     </div>
   )
 }
