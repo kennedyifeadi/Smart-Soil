@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { DarkToggleContext } from './context/DarkModeContext'
 import { RiRobot2Line } from "react-icons/ri";
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -19,7 +19,7 @@ export const AiSummary = () => {
   const fetchData = async () => {
     try {
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-      const prompt = ``
+      const prompt = `how are you doing today`
       const result = await model.generateContent(prompt);
       await sleep(1000);
       setIsLoading(false)
@@ -56,7 +56,7 @@ export const AiSummary = () => {
                 </div>
             </div>
             <div className='w-full h-[80%] p-2'>
-                <div className={`w-full h-full rounded-md ${isDark ? "bg-[#09090b5e]" : "bg-[#fafafa]" }`}>
+                <div className={`w-full h-full rounded-md p-2 text-[15px] ${isDark ? "text-[#fafafa]" : "text-[#09090b]"} ${isDark ? "bg-[#09090b5e]" : "bg-[#fafafa]" }`}>
                 {isLoading ? <Loader/> : response}
                 </div>
             </div>
@@ -65,4 +65,4 @@ export const AiSummary = () => {
   )
 }
 
-// AIzaSyD1USFu5Hfsm51w8hslUuwQp6jobvbQ4sg
+
