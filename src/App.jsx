@@ -8,7 +8,7 @@ import { ValueCard } from "./components/ValueCard"
 import { FaTemperatureHigh } from "react-icons/fa6";
 import { BsMoisture } from "react-icons/bs";
 import { WiHumidity } from "react-icons/wi";
-import { db, get, onValue, ref} from "./firebase/firebase"
+import { db, onValue, ref} from "./firebase/firebase"
 
 function App() {
   const {isDark} = useContext(DarkToggleContext)
