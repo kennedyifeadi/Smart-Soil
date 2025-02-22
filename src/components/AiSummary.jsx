@@ -2,14 +2,19 @@ import React, { useContext } from 'react'
 import { DarkToggleContext } from './context/DarkModeContext'
 import { RiRobot2Line } from "react-icons/ri";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { Loader } from './UI/Loader';
 
 
 
 export const AiSummary = () => {
   const {isDark} = useContext(DarkToggleContext)
   const [response, setResponse] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const API_KEY = import.meta.env.VITE_REACT_API_KEY
   const genAI = new GoogleGenerativeAI(API_KEY)
+
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 
   const fetchData = async () => {
     try {
@@ -52,7 +57,7 @@ export const AiSummary = () => {
             </div>
             <div className='w-full h-[80%] p-2'>
                 <div className={`w-full h-full rounded-md ${isDark ? "bg-[#09090b5e]" : "bg-[#fafafa]" }`}>
-
+                {isLoading ? <Loader/> : response}
                 </div>
             </div>
         </div>
