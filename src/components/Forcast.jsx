@@ -31,7 +31,7 @@ export const Forcast = () => {
           {todayForcast}
         </span>
         <span className={`text-[8px] ${isDark ? "text-[#cfdf32]" : "text-[#ffbc02]"}`}>
-          today's reading
+          today's weather reading
         </span>
       </div>
       <div className={`w-max h-max flex flex-col border-2 ${isDark ? "text-[#fafafa] border-[#27272a] bg-[#27272ab9]" : "text-[#09090b] border-[#dbd9d99f] bg-[#dbd9d96c]"} rounded-full px-4`}>
@@ -39,7 +39,7 @@ export const Forcast = () => {
           {tomorrowForcast}
         </span>
         <span className={`text-[8px] ${isDark ? "text-[#cfdf32]" : "text-[#ffbc02]"}`}>
-          tomorrow's reading
+          tomorrow's weather reading
         </span>
       </div>
     </div>

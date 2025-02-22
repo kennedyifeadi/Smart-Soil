@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { AiSummary } from "./components/AiSummary"
-import { Chart } from "./components/chart"
+import { Chart } from "./components/Chart"
 import { DarkToggleContext} from "./components/context/DarkModeContext"
 import { Forcast } from "./components/Forcast"
 import { NavBar } from "./components/NavBar"
