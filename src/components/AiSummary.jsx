@@ -56,8 +56,8 @@ export const AiSummary = () => {
                 </div>
             </div>
             <div className='w-full h-[80%] p-2'>
-                <div className={`w-full h-full rounded-md p-2 text-[15px] ${isDark ? "text-[#fafafa]" : "text-[#09090b]"} ${isDark ? "bg-[#09090b5e]" : "bg-[#fafafa]" }`}>
-                {isLoading ? <Loader/> : response}
+                <div className={`w-full h-full overflow-auto rounded-md p-2 text-[15px] ${isDark ? "text-[#fafafa]" : "text-[#09090b]"} ${isDark ? "bg-[#09090b5e]" : "bg-[#fafafa]" }`}>
+                    {isLoading ? <Loader/> : response}
                 </div>
             </div>
         </div>
