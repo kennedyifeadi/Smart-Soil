@@ -12,9 +12,9 @@ import { db, onValue, ref} from "./firebase/firebase"
 
 function App() {
   const {isDark} = useContext(DarkToggleContext)
-  const [temperature, setTemperature] = useState(null);
-  const [moisture, setMoisture] = useState(null);
-  const [humidity, setHumidity] = useState(null);
+  const [temperature, setTemperature] = useState(0);
+  const [moisture, setMoisture] = useState(0);
+  const [humidity, setHumidity] = useState(0);
 
 
   const updateDashboard = () => {
@@ -32,7 +32,7 @@ function App() {
     updateDashboard();
   }, [])
   return (
-    <div className={`w-[100dvw] h-[100dvh] flex flex-col relative overflow-hidden ${isDark ? "bg-[#09090b]" : "bg-[#fafafa]"}`}>
+    <div className={`w-[100dvw] h-[100dvh] flex flex-col justify-between relative overflow-hidden ${isDark ? "bg-[#09090b]" : "bg-[#fafafa]"}`}>
         <NavBar/>
         <Forcast/>
         <div className=" w-full h-max flex justify-between px-4 mb-4">
@@ -40,8 +40,10 @@ function App() {
           <ValueCard Title="Moisture" Value={moisture + "%"} State={"Moderate level"} Icon={<BsMoisture />}/>
           <ValueCard Title="Humidity" Value={humidity + "%"} State={"Moderate level"} Icon={<WiHumidity />}/>
         </div>
-        <Chart/>
-        <AiSummary/>
+        <div className='w-full h-[64%] border flex flex-col md:flex-row'>
+          <Chart/>
+          <AiSummary/>
+        </div>
     </div>
   )
 }

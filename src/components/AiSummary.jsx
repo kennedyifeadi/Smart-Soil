@@ -64,7 +64,7 @@ export const AiSummary = () => {
     initial = {{opacity: 0, y: 40}}
     animate={{ opacity: 1, y: 0}}
     transition={{ duration: 2}}
-    className='w-full h-[32%] px-4 mb-2'>
+    className='w-full h-[50%] md:w-[50%] md:h-full px-4 mb-2'>
       <div className={`relative w-full h-full overflow-hidden flex flex-col justify-between 
         ${isDark ? "border-2 border-[#27272a] bg-[#27272ab9]" : "border-2 border-[#dbd9d99f] bg-[#dbd9d96c]"} 
         rounded-md `}>
